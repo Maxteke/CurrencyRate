@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         CurrencyRate
 // @namespace    Pokeclicker Scripts
-// @version      0.4
+// @version      0.3
 // @description  Display curency rate
 // @author       Maxteke
 // @match        https://www.pokeclicker.com/
