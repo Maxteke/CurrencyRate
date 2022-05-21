@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         [Pokeclicker] Currency rate
 // @namespace    Pokeclicker Scripts
-// @version      0.3
+// @version      0.4
 // @description  Display curency rate
 // @author       Maxteke
 // @match        https://www.pokeclicker.com/
@@ -141,16 +141,24 @@ function currencyLoop(money, dungeon, range) {
             range.value = 1;
         
         var mRate = App.game.wallet.currencies[GameConstants.Currency.money]() - oldMonyCurrency;
-        moneyRate[moneyIndex] = mRate;
-        moneyIndex = (moneyIndex + 1) % 10;
+        var dRate = App.game.wallet.currencies[GameConstants.Currency.dungeonToken]() - oldDungeonCurrency;
+
+        if (mRate > 0) {
+            moneyRate[moneyIndex] = mRate;
+            moneyIndex = (moneyIndex + 1) % 10;
+        }
+
+        if (dRate > 0) {
+            dungeonRate[dungeonIndex] = dRate;
+            dungeonIndex = (dungeonIndex + 1) % 10;
+        }
+
         setMoneyRate(moneyRate, money, parseInt(range.value));
         oldMonyCurrency = App.game.wallet.currencies[GameConstants.Currency.money]();
 
-        var dRate = App.game.wallet.currencies[GameConstants.Currency.dungeonToken]() - oldDungeonCurrency;
-        dungeonRate[dungeonIndex] = dRate;
-        dungeonIndex = (dungeonIndex + 1) % 10;
         setDungeonRate(dungeonRate, dungeon, parseInt(range.value));
         oldDungeonCurrency = App.game.wallet.currencies[GameConstants.Currency.dungeonToken]();
+        
         localStorage.setItem("range", parseInt(range.value));
     }, 1000);
 }
