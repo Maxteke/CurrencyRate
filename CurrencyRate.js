@@ -143,12 +143,12 @@ function currencyLoop(money, dungeon, range) {
         var mRate = App.game.wallet.currencies[GameConstants.Currency.money]() - oldMonyCurrency;
         var dRate = App.game.wallet.currencies[GameConstants.Currency.dungeonToken]() - oldDungeonCurrency;
 
-        if (mRate > 0) {
+        if (mRate >= 0) {
             moneyRate[moneyIndex] = mRate;
             moneyIndex = (moneyIndex + 1) % 10;
         }
 
-        if (dRate > 0) {
+        if (dRate >= 0) {
             dungeonRate[dungeonIndex] = dRate;
             dungeonIndex = (dungeonIndex + 1) % 10;
         }
