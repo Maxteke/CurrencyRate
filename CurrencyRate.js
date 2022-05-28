@@ -176,7 +176,7 @@ function loadScript(){
     Preload.hideSplashScreen = function(){
         var result = oldInit.apply(this, arguments)
         initCurrencyRate()
-        console.log("Currency rate loaded");
+        console.log(`[${GameConstants.formatDate(new Date())}] %cCurrency rate loaded`, 'color:#8e44ad;font-weight:900;');
         return result
     }
 }
