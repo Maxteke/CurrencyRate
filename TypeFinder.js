@@ -156,7 +156,6 @@ function clearResult(result) {
 function findRoutes(result, type) {
     clearResult(result);
     types[type].forEach(route => {
-        console.log(route.route.routeName, route.score);
         if (route.route != undefined)
             addResult(result, route);
     });
