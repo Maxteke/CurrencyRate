@@ -95,10 +95,14 @@ function clear() {
 function battleLoop(input) {
     BattleFrontierRunner.start(false);
     autoBattleLoop = setInterval(function () {
-        if (input.value > '1000')
-            input.value = '1000';
-        if (input.value < '1')
-            input.value = '1';
+        if (parseInt(input.value) < 1) {
+            input.value = 1;
+        }
+
+        if (parseInt(input.value) > 1000) {
+            input.value = 1000;
+        }
+        
         if (BattleFrontierRunner.stage() > input.value) {
             clear();
             BattleFrontierRunner.start(false);
