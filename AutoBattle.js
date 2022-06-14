@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         AutoBattle
 // @namespace    Pokeclicker Scripts
-// @version      0.1
+// @version      0.2
 // @description  Auto hatch
 // @author       Maxteke
 // @match        https://www.pokeclicker.com/
